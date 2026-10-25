@@ -3,6 +3,7 @@ package com.javarush.khmelov.controller;
 import com.javarush.khmelov.cmd.Command;
 import com.javarush.khmelov.config.Winter;
 import com.javarush.khmelov.entity.Role;
+import com.javarush.khmelov.util.Go;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,7 +13,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet({"", "/home", "/list-user", "/edit-user"})
+@WebServlet({
+        Go.INDEX, Go.EDIT_USER,
+        Go.HOME, Go.SIGNUP, Go.LOGOUT,
+        Go.LOGIN, Go.PROFILE, Go.LIST_USER,
+})
 public class FrontController extends HttpServlet {
 
     private final HttpResolver httpResolver = Winter.find(HttpResolver.class);
