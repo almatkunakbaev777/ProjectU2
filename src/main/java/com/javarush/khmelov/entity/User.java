@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class User implements AbstractEntity {
 
     private Long id;
 
@@ -20,7 +20,7 @@ public class User {
     private Role role;
 
     public String getImage() { //TODO move to DTO
-        return "image-" + id;
+        return "user-" + id;
     }
 
 }
