@@ -3,10 +3,11 @@ package com.javarush.khmelov.util;
 import com.javarush.khmelov.entity.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import lombok.experimental.UtilityClass;
 
 import java.util.Optional;
-
-public class RequestUtil {
+@UtilityClass
+public class RequestHelpers {
 
     public Long getId(HttpServletRequest req) {
         return getId(req, Key.ID);
