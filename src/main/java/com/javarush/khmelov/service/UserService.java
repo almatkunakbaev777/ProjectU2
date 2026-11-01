@@ -1,21 +1,28 @@
 package com.javarush.khmelov.service;
 
-import com.javarush.khmelov.repository.UserRepository;
 import com.javarush.khmelov.entity.User;
+import com.javarush.khmelov.exception.AppException;
+import com.javarush.khmelov.repository.Repository;
+import com.javarush.khmelov.repository.UserRepository;
 
 import java.util.Collection;
 import java.util.Optional;
 
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final Repository<User> userRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(Repository<User>  userRepository) {
         this.userRepository = userRepository;
     }
 
     public void create(User user) {
-        userRepository.create(user);
+        User loginPattern = User.builder().login(user.getLogin()).build();
+        if (userRepository.find(loginPattern).findAny().isEmpty()) {
+            userRepository.create(user);
+        } else {
+            throw new AppException("User with login " + user.getLogin() + " already exists");
+        }
     }
 
     public void update(User user) {

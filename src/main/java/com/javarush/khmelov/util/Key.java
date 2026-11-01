@@ -25,5 +25,8 @@ public class Key {
     public static final String ERROR_MESSAGE = "errorMessage";
     public static final String GAME = "game";
     public static final String ANSWER = "answer";
+    public static final String LOGOUT = "logout";
+    public static final String QUESTION_ID = "questionId";
+    public static final String LIST_USER_STATISTICS = "listUserStatistics";
+    public static final String TOTAL_USER_STATISTICS = "totalUserStatistics";
 }
-
